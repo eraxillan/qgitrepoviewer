@@ -49,6 +49,11 @@ namespace QGitRepoViewer
 		QString m_repo_path;
 
 		/**
+		 * @brief Return the SHA-1 id of selected in list commit
+		 */
+		QString selectedCommitId () const;
+
+		/**
 		  * @brief Save some application settings on window hide event
 		  */
 		void hideEvent (QResizeEvent* _event);
@@ -63,6 +68,11 @@ namespace QGitRepoViewer
 		  * @brief Selected local branch was changed
 		  */
 		void aboutBranchSelected (const QString& _item);
+
+		/**
+		 * @brief Selected commit was changed
+		 */
+		void aboutCommitSelected (const QModelIndex& _current, const QModelIndex& _previous);
 
 		/**
 		  * @brief Filter search column index was changed

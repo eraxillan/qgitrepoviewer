@@ -48,6 +48,12 @@ CMainWindow::CMainWindow (QWidget* _parent):
 	m_ui.commit_list->setModel (m_commit_model);
 
 	//
+	// Handle user click on commit: show commit hash in appropriate text field
+	//
+	connect (m_ui.commit_list->selectionModel (), SIGNAL (currentChanged (const QModelIndex&, const QModelIndex&)),
+			 this, SLOT (aboutCommitSelected (const QModelIndex&, const QModelIndex&)));
+
+	//
 	// Connect search widget to commits table (can search by brief commit description/author/date)
 	//
 	m_ui.commit_search->setView (m_ui.commit_list);
@@ -204,17 +210,25 @@ CMainWindow::aboutBranchSelected (const QString& _item)
 }
 
 void
+CMainWindow::aboutCommitSelected (const QModelIndex& _current, const QModelIndex& _previous)
+{
+	Q_UNUSED (_previous);
+
+	if (_current.isValid ())
+		m_ui.commit_hash->setText (selectedCommitId ());
+}
+
+void
 CMainWindow::aboutFilterChanged (int _column_idx)
 {
 	m_ui.commit_search->setSearchColumn (_column_idx);
 }
 
-/*QString
+QString
 CMainWindow::selectedCommitId () const
 {
 	//
-	// 1) Получаем ID выбранного пользователем коммита;
-	// 2) Добываем данные нужного файла из этого коммита
+	// Obtain the ID of user selected commit
 	//
 	QString result;
 	if (m_ui.commit_list->selectionModel ()->hasSelection ())
@@ -225,7 +239,7 @@ CMainWindow::selectedCommitId () const
 	}
 
 	return result;
-}*/
+}
 
 void
 QGitRepoViewer::CMainWindow::on_action_open_repo_triggered ()
