@@ -105,7 +105,7 @@ static QStringList gitAllBranches (git_repository* _repo)
 using namespace QGitRepoViewer;
 
 CBranchListModel::CBranchListModel (QObject* _parent):
-	QAbstractItemModel (_parent)
+	QAbstractListModel (_parent)
 {}
 
 CBranchListModel::~CBranchListModel ()
@@ -113,6 +113,8 @@ CBranchListModel::~CBranchListModel ()
 
 void CBranchListModel::loadFromGit (const QString& _repo_path)
 {
+	beginResetModel ();
+
 	// Search git repository (".git" directory) in _repo_path and recursively in its parent directories
 	git_repository* repo = NULL;
 	int error_code = git_repository_open_ext (& repo, QFile::encodeName (_repo_path),
@@ -130,7 +132,7 @@ void CBranchListModel::loadFromGit (const QString& _repo_path)
 		showGitError (NULL, error_code, QTranslator::tr ("opening repository"));
 
 	// Reset model in all attached views
-	reset ();
+	endResetModel ();
 }
 
 bool CBranchListModel::empty () const
@@ -142,12 +144,6 @@ int CBranchListModel::rowCount (const QModelIndex& _parent) const
 {
 	Q_UNUSED (_parent);
 	return m_branches.count ();
-}
-
-int CBranchListModel::columnCount (const QModelIndex& _parent) const
-{
-	Q_UNUSED (_parent);
-	return 1;
 }
 
 QVariant CBranchListModel::data (const QModelIndex& _index, int _role) const
@@ -165,19 +161,3 @@ QVariant CBranchListModel::data (const QModelIndex& _index, int _role) const
 	return QVariant ();
 }
 
-QModelIndex CBranchListModel::index (int _row, int _column, const QModelIndex& _parent) const
-{
-	Q_UNUSED (_column);
-	Q_UNUSED (_parent);
-
-	// List item have only one index - row one
-	return createIndex (_row, 0);
-}
-
-QModelIndex CBranchListModel::parent (const QModelIndex& _child) const
-{
-	Q_UNUSED (_child);
-
-	// List has flat structure and haven't child-parent relations at all
-	return QModelIndex ();
-}

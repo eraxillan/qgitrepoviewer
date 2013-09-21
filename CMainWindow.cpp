@@ -6,7 +6,7 @@
  * (С) SpectrumSoft, 2010-2013
  */
 
-#include "cmainwindow.h"
+#include "CMainWindow.h"
 
 #include "CCommitModel.h"
 #include "CBranchModel.h"

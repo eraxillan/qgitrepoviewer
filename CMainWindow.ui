@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>691</width>
-    <height>345</height>
+    <width>689</width>
+    <height>343</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,6 +90,16 @@
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The list of branches in git repository&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
+      <item>
+       <property name="text">
+        <string>text</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>text2</string>
+       </property>
+      </item>
      </widget>
     </item>
     <item row="0" column="3">
@@ -120,7 +130,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>691</width>
+     <width>689</width>
      <height>22</height>
     </rect>
    </property>

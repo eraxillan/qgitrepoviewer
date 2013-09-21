@@ -13,8 +13,8 @@
 
 namespace QGitRepoViewer
 {
-	/// Custom item data model for local branches of git SCM repository
-	class CBranchListModel : public QAbstractItemModel
+	/// Simple read-only list data model for viewing local branches of git SCM repository
+	class CBranchListModel : public QAbstractListModel
 	{
 		Q_OBJECT
 
@@ -35,12 +35,7 @@ namespace QGitRepoViewer
 		/// @name Implementation of QAbstractItemModel interface
 		/** @{*/
 		int rowCount (const QModelIndex& _parent = QModelIndex ()) const;
-		int columnCount (const QModelIndex& _parent = QModelIndex ()) const;
-
 		QVariant data (const QModelIndex& _index, int _role = Qt::DisplayRole) const;
-
-		virtual QModelIndex index (int _row, int _column, const QModelIndex& _parent = QModelIndex ()) const;
-		virtual QModelIndex parent (const QModelIndex& _child) const;
 		/** @}*/
 	};
 }

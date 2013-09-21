@@ -11,8 +11,9 @@
 
 #include <QDialog>
 #include <QStringListModel>
+#include <QStandardItemModel>
 
-#include "ui_cmainwindow.h"
+#include "ui_CMainWindow.h"
 
 struct git_repository;
 

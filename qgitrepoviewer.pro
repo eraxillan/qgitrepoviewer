@@ -20,15 +20,17 @@ INCLUDEPATH += $${GIT2ROOT}/include
 LIBS        += -L$$PROJ_ROOT/libgit2-build -lgit2
 
 SOURCES += main.cpp\
-		cmainwindow.cpp \
 	CCommitModel.cpp \
 	CBranchModel.cpp \
-    CSearchLineWidget.cpp
+    CSearchLineWidget.cpp \
+    CMainWindow.cpp
 
-HEADERS  += cmainwindow.h \
+HEADERS  += \
 	CCommitModel.h \
 	CBranchModel.h \
-    CSearchLineWidget.h
+    CSearchLineWidget.h \
+    CMainWindow.h
 
-FORMS    += cmainwindow.ui \
-    CSearchLineWidget.ui
+FORMS    += \
+    CSearchLineWidget.ui \
+    CMainWindow.ui
