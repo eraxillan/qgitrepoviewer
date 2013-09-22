@@ -23,14 +23,19 @@ SOURCES += main.cpp\
 	CCommitModel.cpp \
 	CBranchModel.cpp \
     CSearchLineWidget.cpp \
-    CMainWindow.cpp
+    CMainWindow.cpp \
+    GitHelpers.cpp
 
 HEADERS  += \
 	CCommitModel.h \
 	CBranchModel.h \
     CSearchLineWidget.h \
-    CMainWindow.h
+    CMainWindow.h \
+    GitHelpers.h
 
 FORMS    += \
     CSearchLineWidget.ui \
     CMainWindow.ui
+
+RESOURCES += \
+    qgitrepoviewer.qrc

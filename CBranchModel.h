@@ -11,6 +11,8 @@
 #include <QStringList>
 #include <QAbstractTableModel>
 
+#include "GitHelpers.h"
+
 namespace QGitRepoViewer
 {
 	/// Simple read-only list data model for viewing local branches of git SCM repository
@@ -19,7 +21,11 @@ namespace QGitRepoViewer
 		Q_OBJECT
 
 		/// The list of local branch names of git repository
-		QStringList m_branches;
+		QList<CGitBranch> m_branches;
+
+		CGitRepository m_repo;
+
+		void showLastGitError ();
 
 	public:
 		CBranchListModel (QObject* _parent = 0);
@@ -30,6 +36,9 @@ namespace QGitRepoViewer
 
 		/// Check for existance of at least one branch in git repository
 		bool empty () const;
+
+		/// Creates the new branch pointing to specified commit (to HEAD by default)
+		//bool createBranch (const QString& _name, const QString& _commit_id = QString ());
 
 	public:
 		/// @name Implementation of QAbstractItemModel interface

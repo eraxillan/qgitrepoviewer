@@ -6,7 +6,7 @@
 
 #include <QApplication>
 
-#include "cmainwindow.h"
+#include "CMainWindow.h"
 
 int main (int argc, char* argv[])
 {

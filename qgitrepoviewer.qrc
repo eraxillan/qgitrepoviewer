@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qgitrepoviewer">
+        <file>icons/remote.png</file>
+        <file>icons/asterisk_orange.png</file>
+        <file>icons/computer.png</file>
+    </qresource>
+</RCC>

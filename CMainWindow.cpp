@@ -267,10 +267,25 @@ QGitRepoViewer::CMainWindow::on_action_open_repo_triggered ()
 	}
 }
 
-void QGitRepoViewer::CMainWindow::on_action_quit_triggered ()
+void QGitRepoViewer::CMainWindow::on_action_exit_triggered()
 {
 	//
 	// Close the main application window and quit
 	//
 	close ();
+}
+
+void QGitRepoViewer::CMainWindow::on_action_create_branch_triggered()
+{
+	//
+}
+
+void QGitRepoViewer::CMainWindow::on_action_delete_branch_triggered()
+{
+	//
+}
+
+void QGitRepoViewer::CMainWindow::on_action_move_branch_triggered()
+{
+	//
 }

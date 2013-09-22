@@ -88,7 +88,13 @@ namespace QGitRepoViewer
 		/**
 		 * @brief Quit from the program
 		 */
-		void on_action_quit_triggered ();
+		void on_action_exit_triggered();
+
+		void on_action_create_branch_triggered();
+
+		void on_action_delete_branch_triggered();
+
+		void on_action_move_branch_triggered();
 
 	public:
 		/**

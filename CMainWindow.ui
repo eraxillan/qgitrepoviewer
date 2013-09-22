@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>689</width>
-    <height>343</height>
+    <width>687</width>
+    <height>341</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -130,7 +130,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>689</width>
+     <width>687</width>
      <height>22</height>
     </rect>
    </property>
@@ -140,9 +140,18 @@
     </property>
     <addaction name="action_open_repo"/>
     <addaction name="separator"/>
-    <addaction name="action_quit"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menuBranch">
+    <property name="title">
+     <string>Branch</string>
+    </property>
+    <addaction name="action_create_branch"/>
+    <addaction name="action_delete_branch"/>
+    <addaction name="action_move_branch"/>
    </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuBranch"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -157,10 +166,49 @@
    <property name="text">
     <string>Open repository...</string>
    </property>
+   <property name="toolTip">
+    <string>Open git repository</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
-  <action name="action_quit">
+  <action name="action_exit">
    <property name="text">
-    <string>Quit</string>
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit from application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_create_branch">
+   <property name="text">
+    <string>Create...</string>
+   </property>
+   <property name="toolTip">
+    <string>Create a new local branch</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N, Ctrl+B</string>
+   </property>
+  </action>
+  <action name="action_delete_branch">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete selected branch</string>
+   </property>
+  </action>
+  <action name="action_move_branch">
+   <property name="text">
+    <string>Rename/move...</string>
+   </property>
+   <property name="toolTip">
+    <string>Rename or move the selected branch</string>
    </property>
   </action>
  </widget>
